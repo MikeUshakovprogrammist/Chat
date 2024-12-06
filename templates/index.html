@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ value }}</title>
+    <style>
+        html, body{
+            height: 100%;
+        }
+
+        body{
+            margin: 0;
+            background: linear-gradient(45deg, #000428, #004e92);
+            background-size: 200% 200%;
+            animation: gradient 7s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        button {
+            background-color: #32a883;
+            border-color: aqua;
+            box-shadow: 0 0 5px #32a883,
+            0 0 25px #32a883;
+        }
+
+        button:hover {
+            box-shadow: 0 0 5px #32a883,
+            0 0 25px #32a883, 0 0 50px #32a883,
+            0 0 100px #32a883, 0 0 200px #32a883;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .check_password::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background-color: rgb(191, 255, 0);
+            bottom: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .3s ease-in-out;
+        }
+
+        .check_password:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .check_password {
+            text-decoration: none;
+            color: #32a883;
+        }
+
+        .remove {
+            text-decoration: none;
+            color: #32a883;
+        }
+
+        .one {
+            text-decoration: none;
+            color: #32a883;
+        }
+
+        label {
+            color: #32a883;
+        }
+
+        .sory {
+            color: rgba(255, 255, 255, 0);
+        }
+
+        .input1:checked ~ .sory {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Установить новый пароль</h1>
+    <form method="post">
+        <input type="password" name="password" placeholder="Введите новый пароль" required>
+        <button type="submit">Сохранить пароль</button>
+    </form>
+    <a class="check_password" href="/check">Проверить пароль</a><br>
+    <a class="remove" href="/remove">Удалить аккаунт</a><br>
+    <a class="one" href="/comp">На чем можно использовать?</a><br>
+    <input class="input1" type="radio" id="i1" name="i3">
+    <label for="i1">Светлая тема</label><br>
+    <input type="radio" id="i2" name="i3">
+    <label for="i2">Темная тема</label>
+    <p class="sory">Извините, эта кнопка пока не работает!</p>
+</body>
+</html>
